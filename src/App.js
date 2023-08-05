@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import ControlledForm from './components/ControlledForm';
+import Display from './components/Display';
+import { useState } from 'react';
 
 function App() {
+  // Create state to hold question data for question to be passed to Display as a prop
+  const [question, setQuestion] = useState ({})
+  const [answer, setAnswer] = useState ({})
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>jQuery</h1>
+      <ControlledForm setQuestion={setQuestion} /> 
+      {/* setAnswer={setAnswer} */}
+      <Display question={question} answer={answer}/>
     </div>
   );
+
 }
 
 export default App;
